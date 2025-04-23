@@ -62,5 +62,13 @@
     "school": "687687",
     "dacha": "yes",
     "createdAt": "2025-04-23T21:49:46.442Z"
+  },
+  {
+    "contact": "+79646345453",
+    "password": "qwerty",
+    "address": "Москва",
+    "school": "Москва",
+    "dacha": "yes",
+    "createdAt": "2025-04-23T23:03:38.642Z"
   }
 ]
