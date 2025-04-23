@@ -1,10 +1,10 @@
 services:
   - type: web
-    name: giveaway-api
+    name: prize-giveaway-vlad-a4      # измените на имя вашего приложения
     env: node
     plan: free
-    buildCommand: npm install
-    startCommand: node server.js
+    buildCommand: npm install         # команда для установки зависимостей
+    startCommand: node server.js      # команда для запуска приложения
     envVars:
       - key: PORT
         value: 8080
