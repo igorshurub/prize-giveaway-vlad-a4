@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Админ — заявки</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    table { width:100%; border-collapse: collapse; }
+    th,td { border:1px solid #ccc; padding:.4rem; font-size:.85rem; }
+    th { background:#eee; }
+  </style>
+</head>
+<body>
+  <h2>📋 Полученные анкеты (live)</h2>
+  <table id="tbl">
+    <thead>
+      <tr><th>Когда</th><th>Контакт</th><th>Где живёт</th><th>Где учится</th><th>Есть дача?</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Socket.io клиент -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const tbody = document.querySelector('#tbl tbody');
+    const socket = io();
+
+    // начальная загрузка
+    socket.on('init', list => list.forEach(addRow));
+
+    // новые заявки
+    socket.on('new-submission', addRow);
+
+    function addRow(d){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${new Date(d.createdAt).toLocaleString()}</td>
+        <td>${d.contact || ''}</td>
+        <td>${d.address || ''}</td>
+        <td>${d.school  || ''}</td>
+        <td>${d.dacha   || ''}</td>`;
+      tbody.prepend(tr);
+    }
+  </script>
+</body>
+</html>

